@@ -4,16 +4,16 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Home from "./components/Home";
 import Header from "./components/Header";
-
-const Routes = () => {
-    const routesArray = [
-        { path: "/", element: <Register /> },
-        { path: "/login", element: <Login /> },
-        { path: "/register", element: <Register /> },
-        { path: "/home", element: <Home /> },
-    ];
-    return useRoutes(routesArray);
-};
+import Routes from "./helper/Routes";
+// const Routes = () => {
+//     const routesArray = [
+//         { path: "/", element: <Register /> },
+//         { path: "/login", element: <Login /> },
+//         { path: "/register", element: <Register /> },
+//         { path: "/home", element: <Home /> },
+//     ];
+//     return useRoutes(routesArray);
+// };
 
 function App() {
     return (
