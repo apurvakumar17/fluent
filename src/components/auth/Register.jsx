@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../context";
 import { doCreateUserWithEmailAndPassword } from "../../firebase/auth";
+import "@material/web/textfield/outlined-text-field.js";
+import "@material/web/button/filled-button.js";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     const [email, setEmail] = useState("");
@@ -33,45 +36,66 @@ const Register = () => {
     if (userLoggedIn) return <Navigate to="/home" replace />;
 
     return (
-        <main className="w-full h-screen flex items-center justify-center">
-            <div className="w-96 p-4 border rounded-xl shadow-xl space-y-5">
-                <h3 className="text-center text-xl font-semibold">Create a New Account</h3>
+        <main className="min-h-screen w-full flex flex-col items-center justify-center px-4 bg-[var(--md-sys-color-background)]">
+            <img
+                src="/assets/fluent-logo-transparent.svg"
+                className="w-28 sm:w-32 md:w-36 mb-13 shadow-[0_0_20px_var(--md-sys-color-primary)] rounded-full"
+                alt="Fluent Logo"
+            />
+
+            <div className="w-full max-w-sm sm:max-w-md p-6 sm:p-7 rounded-2xl shadow-xl space-y-5 border border-[var(--md-sys-color-outline-variant)] text-[var(--md-sys-color-on-surface)] bg-[var(--md-sys-color-surface-container)]">
+                <h3 className="text-center text-xl font-semibold text-[var(--md-sys-color-on-background)]">
+                    Create a New Account
+                </h3>
+
                 <form onSubmit={onSubmit} className="space-y-4">
-                    <input
+                    <md-outlined-text-field
+                        label="Email"
                         type="email"
                         required
-                        placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-3 py-2 border rounded-lg"
-                    />
-                    <input
+                        className="w-full"
+                    ></md-outlined-text-field>
+
+                    <md-outlined-text-field
+                        label="Password"
                         type="password"
                         required
-                        placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full px-3 py-2 border rounded-lg"
-                    />
-                    <input
+                        className="w-full"
+                    ></md-outlined-text-field>
+
+                    <md-outlined-text-field
+                        label="Confirm Password"
                         type="password"
                         required
-                        placeholder="Confirm Password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full px-3 py-2 border rounded-lg"
-                    />
-                    {errorMessage && <p className="text-red-600">{errorMessage}</p>}
-                    <button
+                        className="w-full"
+                    ></md-outlined-text-field>
+
+                    {errorMessage && (
+                        <p className="text-red-600">{errorMessage}</p>
+                    )}
+
+                    <md-filled-button
                         type="submit"
                         disabled={isRegistering}
-                        className="w-full bg-indigo-600 text-white py-2 rounded-lg"
+                        className="w-full"
                     >
                         {isRegistering ? "Signing Up..." : "Sign Up"}
-                    </button>
-                    <p className="text-sm text-center">
+                    </md-filled-button>
+
+                    <p className="text-sm text-center text-[var(--md-sys-color-on-surface-variant)]">
                         Already have an account?{" "}
-                        <a href="/login" className="text-blue-600 underline font-bold">Login</a>
+                        <Link
+                            to="/login"
+                            className="text-[var(--md-sys-color-primary)] underline font-bold"
+                        >
+                            Login
+                        </Link>
                     </p>
                 </form>
             </div>

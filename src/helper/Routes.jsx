@@ -5,7 +5,7 @@ import { useRoutes } from "react-router-dom";
 
 function Routes() {
     const routesArray = [
-        { path: "/", element: <Register /> },
+        { path: "/", element: <Login/> },
         { path: "/login", element: <Login /> },
         { path: "/register", element: <Register /> },
         { path: "/home", element: <Home /> },

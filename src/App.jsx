@@ -18,7 +18,6 @@ import Routes from "./helper/Routes";
 function App() {
     return (
         <AuthProvider>
-            <Header />
             <div className="w-full h-screen flex flex-col">
                 <Routes />
             </div>

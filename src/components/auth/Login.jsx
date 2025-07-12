@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { doSignInWithEmailAndPassword, doSignInWithGoogle } from "../../firebase/auth";
+import {
+    doSignInWithEmailAndPassword,
+    doSignInWithGoogle,
+} from "../../firebase/auth";
 import { useAuth } from "../../context";
+import "@material/web/textfield/outlined-text-field.js";
+import "@material/web/button/filled-button.js";
+import { Link } from "react-router-dom";
 
 function Login() {
     const { userLoggedIn } = useAuth();
@@ -24,73 +30,64 @@ function Login() {
         }
     };
 
-    const onGoogleSignIn = async (e) => {
-        e.preventDefault();
-        setErrorMessage("");
-        try {
-            await doSignInWithGoogle();
-        } catch (err) {
-            setErrorMessage(err.message);
-        }
-    };
-
     if (userLoggedIn) return <Navigate to="/home" replace />;
 
     return (
-        <main className="w-full h-screen flex items-center justify-center">
-            <div className="w-96 space-y-5 p-4 shadow-xl border rounded-xl">
-                <h3 className="text-gray-800 text-xl font-semibold text-center">
+        <main className="min-h-screen w-full flex flex-col items-center justify-center px-4 bg-[var(--md-sys-color-background)]">
+            <img
+                src="/assets/fluent-logo-transparent.svg"
+                className="w-24 md:w-32 mb-10 shadow-[0_0_20px_var(--md-sys-color-primary)] rounded-full"
+                alt="Fluent Logo"
+            />
+
+            <div className="w-full max-w-sm sm:max-w-md p-6 sm:p-7 rounded-2xl shadow-xl space-y-5 border border-[var(--md-sys-color-outline-variant)] text-[var(--md-sys-color-on-surface)] bg-[var(--md-sys-color-surface-container)]">
+                <h3 className="text-xl font-semibold text-center text-[var(--md-sys-color-on-background)]">
                     Welcome Back
                 </h3>
-                <form onSubmit={onSubmit} className="space-y-5">
-                    <div>
-                        <label className="text-sm font-bold">Email</label>
-                        <input
-                            type="email"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="w-full mt-2 px-3 py-2 border rounded-lg"
-                        />
-                    </div>
-                    <div>
-                        <label className="text-sm font-bold">Password</label>
-                        <input
-                            type="password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="w-full mt-2 px-3 py-2 border rounded-lg"
-                        />
-                    </div>
-                    {errorMessage && <p className="text-red-600">{errorMessage}</p>}
-                    <button
+
+                <form onSubmit={onSubmit} className="space-y-4">
+                    <md-outlined-text-field
+                        label="Email"
+                        type="email"
+                        required
+                        value={email}
+                        onInput={(e) => setEmail(e.target.value)}
+                        className="w-full"
+                    ></md-outlined-text-field>
+
+                    <md-outlined-text-field
+                        label="Password"
+                        type="password"
+                        required
+                        value={password}
+                        onInput={(e) => setPassword(e.target.value)}
+                        className="w-full"
+                    ></md-outlined-text-field>
+
+                    {errorMessage && (
+                        <p className="text-sm text-[var(--md-sys-color-error)]">
+                            {errorMessage}
+                        </p>
+                    )}
+
+                    <md-filled-button
                         type="submit"
                         disabled={isSigningIn}
-                        className="w-full bg-indigo-600 text-white py-2 rounded-lg"
+                        className="w-full"
                     >
                         {isSigningIn ? "Signing In..." : "Sign In"}
-                    </button>
+                    </md-filled-button>
                 </form>
-                <p className="text-center text-sm">
+
+                <p className="text-center text-sm text-[var(--md-sys-color-on-surface-variant)]">
                     Don't have an account?{" "}
-                    <a href="/register" className="text-blue-600 underline font-bold">
+                    <Link
+                        to="/register"
+                        className="font-bold underline text-[var(--md-sys-color-primary)]"
+                    >
                         Sign up
-                    </a>
+                    </Link>
                 </p>
-                <div className="flex items-center">
-                    <div className="flex-grow border-b"></div>
-                    <span className="mx-2 text-sm font-bold">OR</span>
-                    <div className="flex-grow border-b"></div>
-                </div>
-                <button
-                    onClick={onGoogleSignIn}
-                    disabled={isSigningIn}
-                    className="w-full flex items-center justify-center gap-3 py-2 border rounded-lg"
-                >
-                    <img src="/google-icon.svg" alt="Google" className="w-5 h-5" />
-                    Continue with Google
-                </button>
             </div>
         </main>
     );

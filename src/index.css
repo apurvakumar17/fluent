@@ -1,2 +1,50 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
 
+:root {
+  --main-font: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--main-font);
+}
+:root,
+:host {
+    --md-sys-color-background: #1a1113;
+    --md-sys-color-on-background: #f1dee1;
+    --md-sys-color-surface: #1a1113;
+    --md-sys-color-surface-dim: #1a1113;
+    --md-sys-color-surface-bright: #423639;
+    --md-sys-color-surface-container-lowest: #140c0e;
+    --md-sys-color-surface-container-low: #23191c;
+    --md-sys-color-surface-container: #271d20;
+    --md-sys-color-surface-container-high: #32272a;
+    --md-sys-color-surface-container-highest: #3d3235;
+    --md-sys-color-on-surface: #f1dee1;
+    --md-sys-color-surface-variant: #554247;
+    --md-sys-color-on-surface-variant: #dac0c6;
+    --md-sys-color-inverse-surface: #f1dee1;
+    --md-sys-color-inverse-on-surface: #392e30;
+    --md-sys-color-outline: #a28b90;
+    --md-sys-color-outline-variant: #554247;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-surface-tint: #ffb1c8;
+    --md-sys-color-primary: #ffb1c8;
+    --md-sys-color-on-primary: #640333;
+    --md-sys-color-primary-container: #b0446d;
+    --md-sys-color-on-primary-container: #ffffff;
+    --md-sys-color-inverse-primary: #a13861;
+    --md-sys-color-secondary: #f6b5c7;
+    --md-sys-color-on-secondary: #4e2231;
+    --md-sys-color-secondary-container: #5d2f3f;
+    --md-sys-color-on-secondary-container: #ffc1d2;
+    --md-sys-color-tertiary: #ffb68e;
+    --md-sys-color-on-tertiary: #542200;
+    --md-sys-color-tertiary-container: #ad4e03;
+    --md-sys-color-on-tertiary-container: #ffffff;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-on-error-container: #ffdad6;
+}
