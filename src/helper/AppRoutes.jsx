@@ -3,7 +3,7 @@ import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import { useRoutes } from "react-router-dom";
 
-function Routes() {
+function AppRoutes() {
     const routesArray = [
         { path: "/", element: <Login/> },
         { path: "/login", element: <Login /> },
@@ -13,4 +13,4 @@ function Routes() {
     return useRoutes(routesArray);
 }
 
-export default Routes;
+export default AppRoutes;

@@ -5,38 +5,38 @@ import { onAuthStateChanged } from "firebase/auth";
 const AuthContext = createContext();
 
 export function useAuth() {
-  return useContext(AuthContext);
+    return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [userLoggedIn, setUserLoggedIn] = useState(false); // fixed name
-  const [loading, setLoading] = useState(true);
+    const [currentUser, setCurrentUser] = useState(null);
+    const [userLoggedIn, setUserLoggedIn] = useState(false); // fixed name
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setCurrentUser(user);
-        setUserLoggedIn(true);
-      } else {
-        setCurrentUser(null);
-        setUserLoggedIn(false);
-      }
-      setLoading(false);
-    });
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setCurrentUser(user);
+                setUserLoggedIn(true);
+            } else {
+                setCurrentUser(null);
+                setUserLoggedIn(false);
+            }
+            setLoading(false);
+        });
 
-    return unsubscribe;
-  }, []);
+        return unsubscribe;
+    }, []);
 
-  const value = {
-    currentUser,
-    userLoggedIn, // fixed key
-    loading,
-  };
+    const value = {
+        currentUser,
+        userLoggedIn, // fixed key
+        loading,
+    };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={value}>
+            {!loading && children}
+        </AuthContext.Provider>
+    );
 }
