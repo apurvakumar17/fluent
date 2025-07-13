@@ -6,7 +6,7 @@ function Home() {
     const { currentUser } = useAuth();
 
     return (
-        <div className="text-2xl font-bold pt-14">
+        <div className="text-2xl font-bold pt-14 h-full bg-[var(--md-sys-color-background)] text-[var(--md-sys-color-on-background)]">
             <Header />
             {currentUser
                 ? `Hello ${
