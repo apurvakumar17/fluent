@@ -7,7 +7,7 @@ import "@material/web/button/filled-tonal-button.js";
 
 const Header = () => {
     const navigate = useNavigate();
-    const { userLoggedIn } = useAuth();
+    const { userLoggedIn, currentUser } = useAuth();
 
     const handleLogout = async () => {
         await doSignOut();
@@ -19,13 +19,17 @@ const Header = () => {
             {userLoggedIn ? (
                 <>
                     <img
-                        src="/assets/account-circle.svg"
-                        className="w-9 rounded-full hover:shadow-[0_0_20px_var(--md-sys-color-primary)] transition-shadow duration-300 hover:cursor-pointer"
-                        alt="Fluent Logo"
+                        src={
+                            currentUser?.photoURL
+                                ? currentUser.photoURL
+                                : "/assets/account-circle.svg"
+                        }
+                        className="w-9 h-9 rounded-full object-cover hover:shadow-[0_0_20px_var(--md-sys-color-primary)] transition-shadow duration-300 hover:cursor-pointer"
+                        alt="User Avatar"
                     />
                     <img
                         src="/assets/fluent-logo-full-transparent.svg"
-                        className="h-7"
+                        className="h-6"
                         alt="Full Fluent Logo"
                     />
                     <md-filled-tonal-button

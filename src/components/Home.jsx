@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth } from "../context";
 import Header from "./Header";
 import LeftMenu from "./LeftMenu";
+import { Outlet } from "react-router-dom";
 
 function Home() {
     const { currentUser } = useAuth();
@@ -12,8 +13,8 @@ function Home() {
             <div className="flex-1">
                 {currentUser ? (
                     <div className="flex h-full">
-                        <div className="left-pane pl-2 md:pr-2 pt-20 w-[60px] md:w-1/6 lg:w-1/5 h-full p-6 bg-[var(--md-sys-color-surface-container-highest)] text-[var(--md-sys-color-on-surface)] border-r border-[var(--md-sys-color-outline-variant)]">
-                        <LeftMenu />
+                        <div className="left-pane px-2 md:pr-2 pt-20 w-[60px] md:w-1/6 lg:w-1/5 h-full bg-[var(--md-sys-color-surface-container-highest)] text-[var(--md-sys-color-on-surface)] border-r border-[var(--md-sys-color-outline-variant)]">
+                            <LeftMenu />
                             {/* Hello{" "}
                             {currentUser.displayName
                                 ? currentUser.displayName
@@ -26,6 +27,7 @@ function Home() {
                                 ? currentUser.displayName
                                 : currentUser.email}
                             , you are now logged in. */}
+                            <Outlet />
                         </div>
                     </div>
                 ) : (
