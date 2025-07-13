@@ -13,7 +13,7 @@ function Home() {
             <div className="flex-1">
                 {currentUser ? (
                     <div className="flex h-full">
-                        <div className="left-pane px-2 md:pr-2 pt-20 w-[60px] md:w-1/6 lg:w-1/5 h-full bg-[var(--md-sys-color-surface-container-highest)] text-[var(--md-sys-color-on-surface)] border-r border-[var(--md-sys-color-outline-variant)]">
+                        <div className="left-pane px-2 md:pr-2 pt-20 w-[60px] md:w-1/6 lg:w-1/5 h-full bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] border-r border-[var(--md-sys-color-outline-variant)]">
                             <LeftMenu />
                             {/* Hello{" "}
                             {currentUser.displayName
