@@ -21,5 +21,6 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app); // ✅ Initialize Firestore
 
+
 // ✅ Export everything
 export { app, analytics, auth, db };

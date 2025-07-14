@@ -30,7 +30,7 @@ function Login() {
         }
     };
 
-    if (userLoggedIn) return <Navigate to="/home" replace />;
+    if (userLoggedIn) return <Navigate to="/home/feed" replace />;
 
     return (
         <main className="min-h-screen w-full flex flex-col items-center justify-center px-4 bg-[var(--md-sys-color-background)]">
