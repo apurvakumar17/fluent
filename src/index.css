@@ -8,6 +8,49 @@
 body {
     font-family: var(--main-font);
 }
+/*
+:root,
+:host {
+    --md-sys-color-background: #fbf8ff;
+    --md-sys-color-on-background: #1b1b20;
+    --md-sys-color-surface: #fbf8ff;
+    --md-sys-color-surface-dim: #dbd9e0;
+    --md-sys-color-surface-bright: #fbf8ff;
+    --md-sys-color-surface-container-lowest: #ffffff;
+    --md-sys-color-surface-container-low: #f5f2f9;
+    --md-sys-color-surface-container: #efedf3;
+    --md-sys-color-surface-container-high: #e9e7ee;
+    --md-sys-color-surface-container-highest: #e4e1e8;
+    --md-sys-color-on-surface: #1b1b20;
+    --md-sys-color-surface-variant: #e2e1ee;
+    --md-sys-color-on-surface-variant: #454650;
+    --md-sys-color-inverse-surface: #303035;
+    --md-sys-color-inverse-on-surface: #f2f0f6;
+    --md-sys-color-outline: #767682;
+    --md-sys-color-outline-variant: #c6c5d2;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-surface-tint: #4b5aa0;
+    --md-sys-color-primary: #4b5aa0;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #afbcff;
+    --md-sys-color-on-primary-container: #1a2b6f;
+    --md-sys-color-inverse-primary: #b9c3ff;
+    --md-sys-color-secondary: #585d7a;
+    --md-sys-color-on-secondary: #ffffff;
+    --md-sys-color-secondary-container: #dce0ff;
+    --md-sys-color-on-secondary-container: #414662;
+    --md-sys-color-tertiary: #864881;
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #f0a6e7;
+    --md-sys-color-on-tertiary-container: #511850;
+    --md-sys-color-error: #ba1a1a;
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #ffdad6;
+    --md-sys-color-on-error-container: #410002;
+}
+    */
+
 :root,
 :host {
     --md-sys-color-background: #121318;

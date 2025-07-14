@@ -60,7 +60,7 @@ function LeftMenu() {
                         </p>
                     </Link>
                 </li>
-                <li
+                {/* <li
                     className={`my-2 p-3 rounded-full hover:cursor-pointer flex justify-center items-center md:justify-start ${
                         pathname === "/home/settings"
                             ? "bg-[var(--md-sys-color-surface-variant)]"
@@ -86,7 +86,7 @@ function LeftMenu() {
                             Settings
                         </p>
                     </Link>
-                </li>
+                </li> */}
                 <li
                     className={`my-2 p-3 rounded-full hover:cursor-pointer flex justify-center items-center md:justify-start ${
                         pathname === "/home/help"
