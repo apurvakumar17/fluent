@@ -5,8 +5,10 @@ import { db } from "../firebase/config"; // Make sure db is exported from here
 import { updateProfile } from "firebase/auth";
 import "@material/web/textfield/outlined-text-field.js";
 import "@material/web/button/filled-button.js";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+    const navigate = useNavigate();
     const { currentUser } = useAuth();
 
     const [displayName, setDisplayName] = useState(
@@ -40,7 +42,7 @@ function Profile() {
 
             setMessage("✅ Profile updated successfully.");
             // Force reload to reflect UI changes (optional)
-            window.location.reload();
+            navigate("/home/profile");
         } catch (error) {
             console.error("Error updating profile:", error);
             setMessage(`❌ Error updating profile: ${error.message}`);
