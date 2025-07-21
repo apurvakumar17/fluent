@@ -99,7 +99,7 @@ const Feed = () => {
                         >
                             Post
                         </md-filled-button>
-                        {message && <span className="text-sm">{message}</span>}
+                        {message && <div className="m-4"><span className="text-sm">{message}</span></div>}
                     </form>
                 )}
 
